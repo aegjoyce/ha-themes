@@ -1,0 +1,49 @@
+light:
+  state_display: >
+    [[[ if (entity.attributes.brightness != null) return Math.round(entity.attributes.brightness / 2.54) + `%` ]]]
+  template: base
+  styles:
+    custom_fields:
+      icon_background:
+        - background: var(--button-card-light-color)
+  state:
+    - value: >-
+        [[[ if (entity.attributes.rgb_color == "255,255,255") return true; else return false ]]]
+      operator: template
+      styles:
+        custom_fields:
+          icon_background:
+            - background: lightgrey
+    - value: 'off'
+      operator: '=='
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - background: black
+            - filter: opacity(25%)
+        icon:
+          - color: gold
+        name:
+          - color: white
+        state:
+          - color: lightgrey
+    - value: 'unavailable'
+      operator: '=='
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(5%)
+          icon_background:
+            - background: black
+            - filter: opacity(15%)
+        icon:
+          - color: gold
+          - filter: opacity(50%)
+        name:
+          - color: white
+          - filter: opacity(50%)
+        state:
+          - color: lightgrey
+          - filter: opacity(50%)

@@ -1,0 +1,62 @@
+alarm:
+  template: base
+  tap_action:
+    action: call-service
+    service: script.alarm_toggle
+  icon: mdi:shield-lock
+  styles:
+    card:
+      - width: 180px
+      - height: 130px
+    grid:
+      - grid-template-areas: "'i x' 'x x' 'n n' 's s'"
+      - grid-template-columns: "60px 1fr"
+      - grid-template-rows: "60px 1fr min-content min-content"
+    custom_fields:
+      background:
+        - width: 180px
+        - height: 130px
+      icon_background:
+        - background: darkred
+    name:
+      - margin-left: 15px
+      - max-width: 160px
+    state:
+      - margin-left: 15px
+      - margin-bottom: 10px
+      - max-width: 160px
+  state:
+    - value: 'disarmed'
+      operator: '=='
+      icon: mdi:shield-check
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - background: black
+            - filter: opacity(25%)
+        icon:
+          - color: seagreen
+        name:
+          - color: white
+        state:
+          - color: lightgrey
+    - value: 'unavailable'
+      operator: '=='
+      icon: mdi:shield-alert-outline
+      styles:
+        card:
+          - filter: opacity(50%) greyscale(100%)
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - background: black
+            - filter: opacity(25%)
+        icon:
+          - color: lightgrey
+        name:
+          - color: white
+        state:
+          - color: lightgrey

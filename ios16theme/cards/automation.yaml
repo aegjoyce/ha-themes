@@ -1,0 +1,39 @@
+automation:
+  template: base
+  styles:
+    custom_fields:
+      icon_background:
+        - background: grey
+  state:
+    - value: 'off'
+      operator: '=='
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - background: black
+            - filter: opacity(25%)
+        icon:
+          - color: lightgrey
+        name:
+          - color: white
+        state:
+          - color: lightgrey
+    - value: 'unavailable'
+      operator: '=='
+      styles:
+        card:
+          - filter: opacity(50%) greyscale(100%)
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - background: black
+            - filter: opacity(25%)
+        icon:
+          - color: lightgrey
+        name:
+          - color: white
+        state:
+          - color: lightgrey

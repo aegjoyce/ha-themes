@@ -1,0 +1,88 @@
+climate:
+  template: base
+  show_state: false
+  show_label: true
+  show_icon: false
+  label: >-
+    [[[ const str = `${(entity.attributes.system_mode)} to ${(entity.attributes.temperature)}°`;
+        const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+        return str2 ]]]
+  custom_fields:
+    current_temperature: "[[[ return `${(entity.attributes.current_temperature)}°`]]]"
+  tap_action:
+    action: more-info
+  styles:
+    card:
+      - width: 180px
+      - height: 130px
+    grid:
+      - grid-template-areas: "'current_temperature' 'x' 'n' 'l'"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "60px 1fr min-content min-content"
+    custom_fields:
+      background:
+        - width: 180px
+        - height: 130px
+      icon_background:
+        - filter: opacity(0%)
+      current_temperature:
+        - justify-self: start
+        - align-self: end
+        - margin-left: 15px
+        - font-weight: 600
+        - font-size: 40px
+        - color: black
+        - text-align: left
+        - z-index: 3
+    name:
+      - margin-left: 15px
+      - max-width: 160px
+    label:
+      - justify-self: start
+      - align-self: start
+      - margin-left: 15px
+      - margin-bottom: 10px
+      - font-size: 15px
+      - color: grey
+      - text-align: left
+      - max-width: 160px
+      - z-index: 3
+  state:
+    - value: 'off'
+      operator: '=='
+      label: 'Off'
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - filter: opacity(0%)
+          current_temperature:
+            - color: white
+        icon:
+          - color: lightgrey
+        name:
+          - color: white
+        label:
+          - color: lightgrey
+    - value: 'unavailable'
+      operator: '=='
+      label: 'Unavailable'
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(5%)
+          icon_background:
+            - filter: opacity(0%)
+          current_temperature:
+            - color: white
+            - filter: opacity(50%)
+        icon:
+          - color: lightgrey
+          - filter: opacity(50%)
+        name:
+          - color: white
+          - filter: opacity(50%)
+        state:
+          - color: lightgrey
+          - filter: opacity(50%)

@@ -1,0 +1,29 @@
+sensor:
+  template: base
+  tap_action:
+    action: more-info
+  styles:
+    card:
+      - width: 160px
+    custom_fields:
+      background:
+        - filter: opacity(0%)
+      icon_background:
+        - filter: opacity(0%)
+    icon: 
+      - width: 40px
+      - height: 40px
+    name:
+      - color: white
+    state:
+      - color: lightgrey
+  state:
+    - value: 'unavailable'
+      operator: '=='
+      styles:
+        icon:
+          - filter: opacity(50%)
+        name:
+          - filter: opacity(50%)
+        state:
+          - filter: opacity(50%)

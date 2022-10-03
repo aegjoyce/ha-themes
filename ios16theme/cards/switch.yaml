@@ -1,0 +1,40 @@
+switch:
+  template: base
+  styles:
+    custom_fields:
+      icon_background:
+        - background: palegreen
+  state:
+    - value: 'off'
+      operator: '=='
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - background: black
+            - filter: opacity(25%)
+        icon:
+          - color: palegreen
+        name:
+          - color: white
+        state:
+          - color: lightgrey
+    - value: 'unavailable'
+      operator: '=='
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(5%)
+          icon_background:
+            - background: black
+            - filter: opacity(15%)
+        icon:
+          - color: palegreen
+          - filter: opacity(50%)
+        name:
+          - color: white
+          - filter: opacity(50%)
+        state:
+          - color: lightgrey
+          - filter: opacity(50%)

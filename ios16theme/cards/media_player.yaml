@@ -1,0 +1,82 @@
+media_player:
+  tap_action:
+    action: more-info
+  template: base
+  custom_fields:
+    background_gradient: " "
+  state_display: >-
+    [[[ if (entity.attributes.media_title == undefined) return `${entity.state}`[0].toUpperCase() + `${entity.state}`.substring(1);
+    else if (entity.attributes.media_artist == undefined) return `${entity.state}`[0].toUpperCase() + `${entity.state}`.substring(1) + `: ${entity.attributes.media_title}`;
+    else return `${entity.state}`[0].toUpperCase() + `${entity.state}`.substring(1) + `: ${entity.attributes.media_title} - ${entity.attributes.media_artist}` ]]]
+  styles:
+    card:
+      - width: 180px
+      - height: 130px
+    grid:
+      - grid-template-areas: "'i x' 'x x' 'n n' 's s'"
+      - grid-template-columns: "60px 1fr"
+      - grid-template-rows: "60px 1fr min-content min-content"
+    custom_fields:
+      background:
+        - width: 180px
+        - height: 130px
+        - background-image: '[[[ return `url("${entity.attributes.entity_picture}")` ]]]'
+        - background-size: cover
+      icon_background:
+        - background: black
+        - filter: opacity(50%)
+      background_gradient:
+        - z-index: 2
+        - bottom: 0px
+        - left: 0px
+        - position: absolute
+        - width: 180px
+        - height: 130px
+        - background-image: >
+            [[[ return `linear-gradient(to top, white, white 25%, rgba(255, 255, 255, 0)` ]]]
+        - filter: opacity(90%)
+    name:
+      - margin-left: 15px
+      - max-width: 160px
+    state:
+      - margin-left: 15px
+      - margin-bottom: 10px
+      - max-width: 160px
+  state:
+    - value: 'unavailable'
+      operator: '=='
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(5%)
+          icon_background:
+            - background: black
+            - filter: opacity(15%)
+          background_gradient:
+            - filter: opacity(0%)
+        icon:
+          - color: lightgrey
+          - filter: opacity(50%)
+        name:
+          - color: white
+          - filter: opacity(50%)
+        state:
+          - color: lightgrey
+          - filter: opacity(50%)
+    - value: 'playing'
+      operator: '!='
+      styles:
+        custom_fields:
+          background:
+            - filter: opacity(10%)
+          icon_background:
+            - background: black
+            - filter: opacity(25%)
+          background_gradient:
+            - filter: opacity(0%)
+        icon:
+          - color: lightgrey
+        name:
+          - color: white
+        state:
+          - color: lightgrey

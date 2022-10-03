@@ -1,0 +1,33 @@
+camera:
+  template: base
+  show_live_stream: true
+  show_name: false
+  show_state: false
+  tap_action:
+    action: more-info
+  variables:
+    zoom: 100%
+  styles:
+    card:
+      - width: 180px
+      - height: 130px
+    grid:
+      - grid-template-areas: "'i"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "1fr"
+    img_cell:
+      - display: flex
+      - width: '[[[ return variables.zoom ]]]'
+    entity_picture:
+      - display: flex
+      - width: '[[[ return variables.zoom ]]]'
+      - justify-content: center
+      - align-items: center
+      - z-index: 4
+    custom_fields:
+      background:
+        - filter: opacity(10%)
+        - height: 130px
+        - background: black
+      icon_background:
+        - filter: opacity(0%)

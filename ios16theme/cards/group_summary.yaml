@@ -1,0 +1,77 @@
+group_summary:
+  template: base
+  group_expand: true
+  state_display: >
+    [[[ if (variables.climate === true) {
+        function getState(value) {
+            return (states[value].state)};
+        function getTemperature(value) {
+            return (states[value].attributes.current_temperature)};
+        function filterClimate(value, index, array) {
+            return value.startsWith('climate.')}
+        function filterSensor(value, index, array) {
+            return value.startsWith('sensor.')}
+        var group = (entity.entity_id);
+        var list = (states[group].attributes.entity_id);
+        var climate = list.filter(filterClimate);
+        var sensor = list.filter(filterSensor);
+        var climatetemps = climate.map(getTemperature);
+        var sensortemps = sensor.map(getState);
+        var alltemps = climatetemps.concat(sensortemps);
+        var max = Math.max(...alltemps);
+        var min = Math.min(...alltemps);
+        return min + '—' + max + '°'
+        }
+        else {
+        function getState(value) {
+            return (states[value].state)};
+        function filterState(value, index, array) {
+            return value === variables.filter_value};
+        var group = (entity.entity_id);
+        var list = (states[group].attributes.entity_id);
+        var states = list.map(getState);
+        var filtered = states.filter(filterState);
+        if (filtered.length === 0) {
+            return variables.if_none }
+        else {
+            return filtered.length + ' ' + variables.status_text}
+        }]]]
+  variables:
+    status_text: 'On'
+    icon_color: lightgrey
+    filter_value: 'on'
+    if_none: 'All Off'
+    climate: false
+  hold_action:
+    action: none
+  tap_action:
+    action: more-info
+  custom_fields:
+    background: " "
+  styles:
+    card:
+      - margin: 0px
+      - width: 120px
+      - height: 45px
+      - border-radius: 25px
+    grid:
+      - grid-template-columns: "50px 1fr"
+    custom_fields:
+      background:
+        - width: 120px
+        - height: 45px
+        - filter: opacity(10%)
+      icon_background:
+        - filter: opacity(0%)
+    icon:
+      - width: 24px
+      - color: '[[[ return variables.icon_color ]]]'
+    name:
+      - font-weight: bold
+      - font-size: 13px
+      - color: white
+      - margin-left: -5px
+    state:
+      - font-size: 13px
+      - margin-left: -5px
+      - color: lightgrey

@@ -1,0 +1,20 @@
+subtitle:
+  tap_action:
+    action: none
+  styles:
+    card:
+      - width: 370px
+      - height: 50px
+      - background: transparent
+      - border-radius: 15px
+      - z-index: 0
+      - box-shadow: 0px 0px 0px 0px
+    name:
+      - top: 20px
+      - left: 10px
+      - position: absolute
+      - max-width: 360px
+      - font-weight: 500
+      - font-size: 20px
+      - color: white
+      - text-align: left

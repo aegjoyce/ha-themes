@@ -1,0 +1,27 @@
+area:
+  template: base
+  show_state: false
+  variables:
+    path: path
+  tap_action:
+    action: "navigate"
+    navigation_path: '[[[ return "/lovelace-new/" + variables.path ]]]'
+  styles:
+    grid:
+      - grid-template-areas: "'i n'"
+      - grid-template-columns: "60px 1fr"
+      - grid-template-rows: "1fr"
+    custom_fields:
+      background:
+        - width: 180px
+        - height: 130px
+        - filter: opacity(10%)
+      icon_background:
+        - background: black
+        - filter: opacity(50%)
+    icon:
+      - color: lightgrey
+    name:
+      - align-self: center
+      - max-width: 160px
+      - color: white

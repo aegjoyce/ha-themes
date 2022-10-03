@@ -1,0 +1,66 @@
+base:
+  show_state: true
+  hold_action:
+    action: more-info
+  tap_action:
+    action: toggle
+  custom_fields:
+    background: " "
+    icon_background: " "
+  styles:
+    card:
+      - margin: 0px
+      - padding: 0px
+      - width: 180px
+      - height: 60px
+      - background: transparent
+      - border-radius: 15px
+      - box-shadow: 0px 0px 0px 0px
+      - z-index: 0
+    grid:
+      - grid-template-areas: "'i n' 'i s'"
+      - grid-template-columns: "60px 1fr"
+      - grid-template-rows: "1fr 1fr"
+    custom_fields:
+      background:
+        - bottom: 0px
+        - left: 0px
+        - position: absolute
+        - width: 180px
+        - height: 60px
+        - background: white
+        - filter: opacity(90%)
+        - z-index: 1
+      icon_background:
+        - z-index: 2
+        - top: 10px
+        - left: 10px
+        - position: absolute
+        - width: 40px
+        - height: 40px
+        - background: lightgrey
+        - border-radius: 20px
+    icon:
+      - width: 26px
+      - height: 26px
+      - color: white
+      - z-index: 3
+    name:
+      - justify-self: start
+      - align-self: end
+      - font-weight: bold
+      - margin-left: 0px
+      - font-size: 15px
+      - color: black
+      - text-align: left
+      - max-width: 120px
+      - z-index: 3
+    state:
+      - justify-self: start
+      - align-self: start
+      - margin-left: 0px
+      - font-size: 15px
+      - color: grey
+      - text-align: left
+      - max-width: 120px
+      - z-index: 3
