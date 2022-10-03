@@ -1,0 +1,5 @@
+title: Your Home Title
+background: center / cover no-repeat fixed url('https://img.wallpapersafari.com/desktop/1920/1080/17/26/i2OY8K.jpg')
+# replace with your own wallpaper URL as desired
+
+views: !include_dir_list views/
