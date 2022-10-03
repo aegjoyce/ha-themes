@@ -1,0 +1,231 @@
+title: Title
+path: home
+panel: true
+visible: true
+cards:
+  - type: vertical-stack
+    cards:
+
+      - type: 'custom:button-card'
+        template: navigate_home
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        show_name: false
+        show_icon: false
+
+      - type: 'custom:button-card'
+        name: Title
+        template: title
+
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: repeat(auto-fill, 120px)
+          grid-template-rows: repeat(auto-fill, 45px)
+          grid-gap: 10px
+        cards:
+
+          - entity: group.all_lights
+            type: 'custom:button-card'
+            template: group_summary
+            name: Lights
+            variables:
+              icon_color: gold
+
+          - entity: group.all_switches
+            type: 'custom:button-card'
+            template: group_summary
+            name: Switches
+            variables:
+              icon_color: lightgreen
+
+          - entity: group.all_media_players
+            type: 'custom:button-card'
+            template: group_summary
+            name: Media
+            variables:
+              status_text: Playing
+              filter_value: playing
+
+          - entity: group.all_water
+            type: 'custom:button-card'
+            template: group_summary
+            name: Water
+            variables:
+              icon_color: cornflowerblue
+
+          - entity: group.all_climate
+            type: 'custom:button-card'
+            template: group_summary
+            name: Climate
+            variables:
+              icon_color: paleturquoise
+              climate: true
+
+          - entity: group.all_persons
+            type: 'custom:button-card'
+            template: group_summary
+            name: People
+            variables:
+              icon_color: white
+              status_text: 'Home'
+              filter_value: 'home'
+              if_none: 'All Away'
+
+## SECURITY ##
+
+      - type: 'custom:button-card'
+        name: Security
+        template: subtitle
+
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: repeat(auto-fill, 180px)
+          grid-template-rows: repeat(auto-fill, 130px)
+          grid-gap: 10px
+        cards:
+
+          - entity: alarm_control_panel.yale_smart_alarm
+            name: Alarm
+            type: 'custom:button-card'
+            template: alarm
+
+          - entity: camera.front_garden_camera
+            type: 'custom:button-card'
+            template: camera
+
+          - entity: camera.back_garden_camera
+            type: 'custom:button-card'
+            template: camera
+
+          - entity: camera.3d_printer_camera
+            type: 'custom:button-card'
+            template: camera
+            variables:
+              zoom: 140%
+
+## AREAS ##
+
+      - type: 'custom:button-card'
+        name: Areas
+        template: subtitle
+
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: repeat(auto-fill, 180px)
+          grid-template-rows: repeat(auto-fill, 60px)
+          grid-gap: 10px
+        cards:
+
+          - type: 'custom:button-card'
+            template: area
+            name: Living Room
+            icon: mdi:sofa
+            variables:
+              path: living_room
+
+          - type: 'custom:button-card'
+            template: area
+            name: Kitchen
+            icon: mdi:silverware
+            variables:
+              path: kitchen
+
+          - type: 'custom:button-card'
+            template: area
+            name: Hall
+            icon: mdi:stairs
+            variables:
+              path: hall
+
+          - type: 'custom:button-card'
+            template: area
+            name: Bedroom
+            icon: mdi:bed-king-outline
+            variables:
+              path: bedroom
+
+          - type: 'custom:button-card'
+            template: area
+            name: Ensuite
+            icon: mdi:shower-head
+            variables:
+              path: ensuite
+
+          - type: 'custom:button-card'
+            template: area
+            name: Guest Bedroom
+            icon: mdi:bed-queen-outline
+            variables:
+              path: guest_bedroom
+
+          - type: 'custom:button-card'
+            template: area
+            name: Study
+            icon: mdi:desk
+            variables:
+              path: study
+
+          - type: 'custom:button-card'
+            template: area
+            name: Loft
+            icon: mdi:home-roof
+            variables:
+              path: loft
+
+          - type: 'custom:button-card'
+            template: area
+            name: Greenhouse
+            icon: mdi:greenhouse
+            variables:
+              path: greenhouse
+
+          - type: 'custom:button-card'
+            template: area
+            name: Outdoor
+            icon: mdi:flower
+            variables:
+              path: outdoor
+
+## OTHER ##
+
+      - type: 'custom:button-card'
+        name: Other
+        template: subtitle
+
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: repeat(auto-fill, 180px)
+          grid-template-rows: repeat(auto-fill, 60px)
+          grid-gap: 10px
+        cards:
+
+          - type: 'custom:button-card'
+            template: area
+            name: Tasks
+            icon: mdi:clipboard-check-outline
+            variables:
+              path: tasks
+
+          - type: 'custom:button-card'
+            template: area
+            name: Settings
+            icon: mdi:cog
+            variables:
+              path: settings
+
+## PADDING ##
+
+      - type: 'custom:button-card'
+        template: navigate_home
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        show_name: false
+        show_icon: false
