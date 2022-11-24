@@ -15,6 +15,7 @@ base:
       - height: 60px
       - background: transparent
       - border-radius: 15px
+      - border-color: transparent
       - box-shadow: 0px 0px 0px 0px
       - z-index: 0
     grid:
